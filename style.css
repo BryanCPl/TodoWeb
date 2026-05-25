@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.background{
+    z-index: -1;
+    width: 100%;
+    position: fixed;
+}
+.container{
+    position: relative;
+    width: 400px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    padding: 30px;
+}
