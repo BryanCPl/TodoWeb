@@ -15,7 +15,7 @@ button.addEventListener('click', function() {
         let listItem = document.createElement('li');
         listItem.innerHTML = `
         <input type="checkbox" class="task-checkbox">
-        ${taskText}
+        <span id="taskText" class="task-text">${taskText}</span>
         <div class="button-container">
             <button class="edit-btn">Edit</button>
             <button class="delete-btn">Delete</button>
@@ -30,12 +30,32 @@ button.addEventListener('click', function() {
         });
 
         listItem.querySelector('.edit-btn').addEventListener('click', function() {
-            let newTaskText = prompt('Edit task:', taskText);
-            if (newTaskText !== null && newTaskText.trim() !== '') {
-                listItem.childNodes[1].textContent = newTaskText.trim();
-                taskText = newTaskText.trim();
+            const taskTextElement = listItem.querySelector('.task-text');
+            let currentText = taskTextElement.textContent;
+            taskTextElement.contentEditable='true';
+            if (taskTextElement.contentEditable === 'true') {
+                taskTextElement.focus();
             }
+            taskTextElement.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                const newText = taskTextElement.textContent.trim();
+                // Si queda vacío, restaurar texto anterior
+                console.log(newText);
+                if (newText === "") {
+                    taskTextElement.textContent = currentText;
+                } else {
+                    // Guardar nuevo texto
+                    currentText = newText;
+                }
+
+                // Salir del modo edición
+                taskTextElement.contentEditable = false;
+                taskTextElement.blur();
+            }
+            });
         });
+
 
         listItem.querySelector('.delete-btn').addEventListener('click', function() {
             taskList.removeChild(listItem);
