@@ -20,8 +20,78 @@ body{
 .container{
     position: relative;
     width: 400px;
-    background: #fff;
+    background: #ffffff8b;
     border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 0 100px rgba(0,0,0,0.15);
+    border: 3px solid #fff;
     padding: 30px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-container{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+}
+
+.container .input-container input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 16px;
+    border: 1px solid #ccc;
+}
+
+.container .input-container button{
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #090909;
+    color: white;
+    cursor: pointer;
+}
+
+.container .todo-container ul li{
+    list-style: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.container .todo-container ul li button{
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ff4d4d;
+    color: white;
+    cursor: pointer;
+}
+.container .input-container button:active{
+    background-color: #5b5959;
+    transform: scale(0.98);
+}
+
+.task-checkbox{
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.empty-image{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.completed{
+    text-decoration: line-through;
+    color: #888;
 }
