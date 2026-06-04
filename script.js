@@ -2,15 +2,28 @@ const button = document.getElementById('addTaskBtn');
 const input = document.getElementById('taskInput');
 const emptyImage = document.querySelector('.empty-image');
 const taskList = document.getElementById('todoList');
+const progressBar = document.getElementById('progress');
+const progressnumber = document.getElementById('number');
 
 input.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
+        updateProgressBar();
         button.click();
     }
 });
 
+
+const updateProgressBar = (checkCompletion=true) => {
+    const totalTasks = taskList.children.length;
+    const completedTasks = taskList.querySelectorAll('.task-checkbox:checked').length;
+    const progressPercentage = totalTasks === 0 ? 0 : (completedTasks / totalTasks) * 100;
+    progressBar.style.width = `${progressPercentage}%`;
+    progressnumber.textContent = `${completedTasks} / ${totalTasks}`;
+}
+
 button.addEventListener('click', function() {
     let taskText = input.value.trim();
+    
     if (taskText !== '') {
         let listItem = document.createElement('li');
         listItem.innerHTML = `
@@ -20,15 +33,16 @@ button.addEventListener('click', function() {
             <button class="edit-btn">Edit</button>
             <button class="delete-btn">Delete</button>
         </div>`;
-
+        
         listItem.querySelector('.task-checkbox').addEventListener('change', function() {
             if (this.checked) {
                 listItem.classList.add('completed');
             } else {
                 listItem.classList.remove('completed');
             }
+            updateProgressBar();
         });
-
+        
         listItem.querySelector('.edit-btn').addEventListener('click', function() {
             const taskTextElement = listItem.querySelector('.task-text');
             let currentText = taskTextElement.textContent;
@@ -58,14 +72,17 @@ button.addEventListener('click', function() {
 
 
         listItem.querySelector('.delete-btn').addEventListener('click', function() {
+            updateProgressBar(false);
             taskList.removeChild(listItem);
             if (taskList.children.length === 0) {
                 emptyImage.style.display = 'block';
             }
+            updateProgressBar();
         });
 
         
         taskList.appendChild(listItem);
+        updateProgressBar();
         input.value = '';
         emptyImage.style.display = 'none';
     }

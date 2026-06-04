@@ -25,7 +25,8 @@ body{
 }
 .container{
     position: relative;
-    width: 400px;
+    min-width: 200px;
+    max-width: 40%;
     background: #ffffff8b;
     border-radius: 10px;
     box-shadow: 0 0 100px rgba(0,0,0,0.15);
@@ -37,6 +38,56 @@ body{
     align-items: center;
     max-height: 70vh;
     overflow-y: auto;
+}
+
+.stat-Container{
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 2px solid #efe9e9;
+    align-items: center;
+}
+
+.details{
+    width: 100%;
+}
+
+.details h3{
+    font-size: 18px;
+    color: #201f1f;
+}
+
+#progressbar{
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    position: relative;
+    margin-top: 5px;
+}
+
+#progress{
+    height: 100%;
+    border-radius: 5px;
+    background-color: #1f5fac;
+    width: 100%;
+    transition: width 0.3s ease;
+}
+
+#number{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height:50px;
+    border-radius: 50%;
+    background-color: #1f5fac;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
 }
 
 .input-container{
@@ -75,6 +126,8 @@ body{
     gap: 10px;
     max-width: 100%;
 }
+
+
 .container .todo-container ul li .task-text{
     flex: 1;
     word-break: break-word;
@@ -107,7 +160,22 @@ body{
     margin-top: 20px;
 }
 
-.completed{
-    text-decoration: line-through;
-    color: #888;
+li.completed{
+    text-decoration: none;
+    background-color: #77db39;
+}
+
+.completed .task-checkbox{
+    background-color: #29970a;
+    border-color: #29970a;
+}
+
+.completed .button-container button{
+    background-color: #39cb18;
+    cursor: not-allowed;
+}
+
+.completed .task-text{
+    font-weight: bold;
+    color: #29970a;
 }
