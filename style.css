@@ -113,6 +113,10 @@ body{
     color: white;
     cursor: pointer;
 }
+.container .todo-container{
+    display: flex;
+    justify-content: center;
+}
 
 .container .todo-container ul li{
     list-style: none;
@@ -156,7 +160,7 @@ body{
 }
 
 .empty-image{
-    width: 100%;
+    width: 80%;
     margin-top: 20px;
 }
 
