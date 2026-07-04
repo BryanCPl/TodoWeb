@@ -4,6 +4,34 @@ const emptyImage = document.querySelector('.empty-image');
 const taskList = document.getElementById('todoList');
 const progressBar = document.getElementById('progress');
 const progressnumber = document.getElementById('number');
+const menuToggle = document.getElementById('menuToggle');
+const menu = document.querySelector('.menu');
+const menuIcon = document.getElementById('menu-icon');
+const inputVideo = document.getElementById('selector-video');
+const videoSource = document.getElementById('video-source');
+
+inputVideo.addEventListener('change', function() {
+    // 1. Obtener el archivo del arreglo 'files'
+    const archivo = this.files[0]; 
+    
+    if (archivo) {
+        const urlVideo = URL.createObjectURL(archivo);
+        videoSource.src = urlVideo;
+        videoSource.parentElement.load(); // Recargar el video para que tome el nuevo source
+      // Aquí ya tienes el archivo listo para usar
+    }
+  });
+
+menuToggle.addEventListener('click', () => {
+    if (menu.classList.contains('menuActive')) {
+        menu.classList.remove('menuActive');
+        menuIcon.src = "resource/menu.png";
+    } else {
+        menu.classList.add('menuActive');
+        menuIcon.src = "resource/back.png";
+    }
+
+});
 
 input.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {

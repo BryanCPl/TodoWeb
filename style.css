@@ -23,6 +23,50 @@ body{
     object-fit: cover;
     object-position: center;
 }
+
+
+.menu{
+    position: fixed;
+    left: 0;
+    z-index: 10;
+    font-size: 24px;
+    cursor: pointer;
+    width: 20px;
+    height: 100vh;
+    transition: width 0.3s ease;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.menu #menuToggle{
+    border:none;
+    padding:auto;
+    max-width: 50px;
+}
+
+#menuToggle img{
+    width:80%;
+    margin:5px;
+}
+
+.menu .menu-item{
+    display: none;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.menuActive{
+    width: 200px;
+    transition: width 0.3s ease;
+    background-color: #ffffff8b;
+}
+
+.menuActive .menu-item{
+    display: block;
+}
+
 .container{
     position: relative;
     min-width: 200px;
@@ -182,4 +226,8 @@ li.completed{
 .completed .task-text{
     font-weight: bold;
     color: #29970a;
+}
+
+.hidden{
+    display: none;
 }

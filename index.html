@@ -5,12 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>todo list</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
-    <video class="background" autoplay muted loop>
-        <source src="resource/goku-ultra-instinct_2.1920x1080.mp4" type="video/mp4">
+    <video class="background" autoplay muted loop playsinline>
+        <source id="video-source" src="resource/vegeta.mp4" type="video/mp4">
     </video>
-
+    <div class="menu">
+        <a id="menuToggle"><img id="menu-icon" src="resource/menu.png" alt="Menu"></a>
+        <div class="menu-item">
+            <div class="menu-item">New</div>
+            <div class="menu-item">
+                <input id="selector-video" type="file" class="hidden" accept="video/*">
+                <label for="selector-video" class="boton-subir">Seleccionar Video</label>
+            </div>
+            <div class="menu-item">guardar</div>
+        </div>
+        
+    </div>
     <div class="container">
         <h1>Todo List</h1>
         <div class="stat-Container">
@@ -40,5 +52,8 @@
         <a href="https://www.flaticon.com/free-icons/nothing" title="nothing icons">Nothing icons created by Leremy - Flaticon</a>
     </footer> -->
     <script src="script.js"></script>
+    
+    
+
 </body>
 </html>
