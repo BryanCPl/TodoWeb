@@ -9,10 +9,48 @@ const menu = document.querySelector('.menu');
 const menuIcon = document.getElementById('menu-icon');
 const inputVideo = document.getElementById('selector-video');
 const videoSource = document.getElementById('video-source');
+const newbutton = document.getElementById('new-button');
+const saveButton = document.getElementById('save-button');
+const loadButton = document.getElementById('load-button');
+
+
+saveButton.addEventListener('click', () => {
+    const tasks = [];
+    taskList.querySelectorAll('li').forEach((taskItem) => {
+        const taskText = taskItem.querySelector('.task-text').textContent;
+        const isCompleted = taskItem.querySelector('.task-checkbox').checked;
+        tasks.push({ text: taskText, completed: isCompleted });
+    });
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+});
+
+loadButton.addEventListener('click', () => {
+    const savedTasks = JSON.parse(localStorage.getItem('tasks'));
+    if (savedTasks) {
+        taskList.innerHTML = '';
+        savedTasks.forEach((task) => {
+            addNewTask(task.text, task.completed);
+        });
+        updateProgressBar();
+        emptyImage.style.display = taskList.children.length === 0 ? 'block' : 'none';
+    }
+});
+
+            
+            
+
+newbutton.addEventListener('click', () => {
+    // Limpiar la lista de tareas
+    taskList.innerHTML = '';
+    // Reiniciar la barra de progreso
+    updateProgressBar();
+    // Mostrar la imagen de "no hay tareas"
+    emptyImage.style.display = 'block';
+});
 
 inputVideo.addEventListener('change', function() {
     // 1. Obtener el archivo del arreglo 'files'
-    const archivo = this.files[0]; 
+    const archivo = this.files[0];
     
     if (archivo) {
         const urlVideo = URL.createObjectURL(archivo);
@@ -20,7 +58,7 @@ inputVideo.addEventListener('change', function() {
         videoSource.parentElement.load(); // Recargar el video para que tome el nuevo source
       // Aquí ya tienes el archivo listo para usar
     }
-  });
+});
 
 menuToggle.addEventListener('click', () => {
     if (menu.classList.contains('menuActive')) {
@@ -53,6 +91,12 @@ button.addEventListener('click', function() {
     let taskText = input.value.trim();
     
     if (taskText !== '') {
+        addNewTask(taskText, false)
+        };
+
+    });
+
+function addNewTask(taskText, isCompleted)  {
         let listItem = document.createElement('li');
         listItem.innerHTML = `
         <input type="checkbox" class="task-checkbox">
@@ -113,5 +157,8 @@ button.addEventListener('click', function() {
         updateProgressBar();
         input.value = '';
         emptyImage.style.display = 'none';
-    }
-});
+    };
+
+
+
+        

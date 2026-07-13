@@ -130,8 +130,17 @@ body{
     border-radius: 50%;
     background-color: #1f5fac;
     color: white;
-    font-size: 1.4rem;
+    font-size: 1rem;
     font-weight: bold;
+}
+
+
+p.copyright {
+    width: 200px;
+    font-size: 10px;
+    height: 100%;
+    display: flex;
+    align-items: end;
 }
 
 .input-container{
@@ -230,4 +239,31 @@ li.completed{
 
 .hidden{
     display: none;
+}
+
+@media (max-width: 768px) {
+
+    .container{
+        max-width: 70%;
+    }
+}
+
+@media (max-width: 430px) {
+.menu{
+    width: 30px;
+}
+#menuToggle img {
+    width: 100%;
+}
+
+.menuActive{
+    width: 100%;
+}
+
+
+.container{
+    max-width: 90%;
+    max-height: 90vh;
+    height: 100vh;
+}
 }
