@@ -80,7 +80,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-height: 70vh;
+    max-height: 85vh;
     overflow-y: auto;
 }
 
@@ -93,6 +93,7 @@ body{
     border-radius: 10px;
     border: 2px solid #efe9e9;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .details{
@@ -168,7 +169,8 @@ p.copyright {
 }
 .container .todo-container{
     display: flex;
-    justify-content: center;
+    justify-content: center;           /* Ocupa el espacio restante */
+    overflow-y: auto;
 }
 
 .container .todo-container ul li{

@@ -14,6 +14,9 @@ const saveButton = document.getElementById('save-button');
 const loadButton = document.getElementById('load-button');
 
 
+
+
+
 saveButton.addEventListener('click', () => {
     const tasks = [];
     taskList.querySelectorAll('li').forEach((taskItem) => {
@@ -47,6 +50,7 @@ newbutton.addEventListener('click', () => {
     // Mostrar la imagen de "no hay tareas"
     emptyImage.style.display = 'block';
 });
+
 
 inputVideo.addEventListener('change', function() {
     // 1. Obtener el archivo del arreglo 'files'
