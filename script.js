@@ -16,7 +16,7 @@ const loadButton = document.getElementById('load-button');
 
 
 
-
+//save the the task if want repeat it
 saveButton.addEventListener('click', () => {
     const tasks = [];
     taskList.querySelectorAll('li').forEach((taskItem) => {
@@ -27,6 +27,7 @@ saveButton.addEventListener('click', () => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 });
 
+//load the taskt in the localstorage
 loadButton.addEventListener('click', () => {
     const savedTasks = JSON.parse(localStorage.getItem('tasks'));
     if (savedTasks) {
@@ -43,27 +44,26 @@ loadButton.addEventListener('click', () => {
             
 
 newbutton.addEventListener('click', () => {
-    // Limpiar la lista de tareas
     taskList.innerHTML = '';
-    // Reiniciar la barra de progreso
     updateProgressBar();
-    // Mostrar la imagen de "no hay tareas"
     emptyImage.style.display = 'block';
 });
 
 
+//changer of video background
 inputVideo.addEventListener('change', function() {
-    // 1. Obtener el archivo del arreglo 'files'
+    // 1. get the file path
     const archivo = this.files[0];
     
     if (archivo) {
         const urlVideo = URL.createObjectURL(archivo);
         videoSource.src = urlVideo;
-        videoSource.parentElement.load(); // Recargar el video para que tome el nuevo source
-      // Aquí ya tienes el archivo listo para usar
+        videoSource.parentElement.load();
     }
 });
 
+
+//show the image if don't has task
 menuToggle.addEventListener('click', () => {
     if (menu.classList.contains('menuActive')) {
         menu.classList.remove('menuActive');
@@ -83,12 +83,17 @@ input.addEventListener('keypress', function(event) {
 });
 
 
+//the progres bar
 const updateProgressBar = (checkCompletion=true) => {
     const totalTasks = taskList.children.length;
     const completedTasks = taskList.querySelectorAll('.task-checkbox:checked').length;
     const progressPercentage = totalTasks === 0 ? 0 : (completedTasks / totalTasks) * 100;
     progressBar.style.width = `${progressPercentage}%`;
     progressnumber.textContent = `${completedTasks} / ${totalTasks}`;
+    //this dont allow congrat for delete all task
+    if (totalTasks > 0 && completedTasks==totalTasks){
+        confeti()
+    }
 }
 
 button.addEventListener('click', function() {
@@ -165,4 +170,3 @@ function addNewTask(taskText, isCompleted)  {
 
 
 
-        
