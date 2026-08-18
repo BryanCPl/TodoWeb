@@ -9,7 +9,7 @@
     --progressbar-progress-color: #ffffff;
     --delete-all-bg-color: rgb(251, 54, 54);
     --complete-bg-color: #0f0;
-    --complete-text-color: #0f0;
+    --complete-text-color: rgb(235, 239, 235);
     --complete-btn-color: #0f0;
     --border-panel: #52545c;
 }
@@ -87,7 +87,7 @@ body{
     transition: width 0.3s ease;
     display: flex;
     flex-direction: column;
-
+    transition: width 0.3s ease;
 }
 
 
@@ -106,6 +106,10 @@ body{
     display: none;
     padding: 20px;
     border-bottom: 1px solid #ccc;
+}
+
+.bg-label{
+    cursor: pointer;
 }
 
 .menuActive{
@@ -193,6 +197,11 @@ p.copyright {
     height: 100%;
     display: flex;
     align-items: end;
+    
+}
+
+p.copyright a{
+    color: var(--progressbar-bg-color);
 }
 
 .input-container{
@@ -222,9 +231,23 @@ p.copyright {
 
 
 .container .todo-container{
+    padding-right:5px ;
     display: flex;
-    justify-content: center;           /* Ocupa el espacio restante */
+    justify-content: center;
     overflow-y: auto;
+}
+/* Ocupa el espacio restante */
+::-webkit-scrollbar-track {
+    background: var(--panel-color);
+    border-radius: 5px;
+}
+::-webkit-scrollbar{
+    width: 10px;
+}
+/* La barra que se mueve (el tirador) */
+::-webkit-scrollbar-thumb {
+    background: var(--border-panel);
+    border-radius: 5px;
 }
 
 .container .todo-container ul li{
@@ -313,6 +336,8 @@ li.completed{
 .hidden{
     display: none;
 }
+
+
 
 @media (max-width: 768px) {
 

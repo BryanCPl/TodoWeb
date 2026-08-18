@@ -13,7 +13,7 @@ const newbutton = document.getElementById('new-button');
 const saveButton = document.getElementById('save-button');
 const loadButton = document.getElementById('load-button');
 const deleteAllBtn=document.getElementById('delete-all-Btn')
-
+const copyright=document.querySelector('.copyright')
 
 
 //save the the task if want repeat it
@@ -75,10 +75,11 @@ inputVideo.addEventListener('change', function() {
 menuToggle.addEventListener('click', () => {
     if (menu.classList.contains('menuActive')) {
         menu.classList.remove('menuActive');
-        menuIcon.src = "resource/menu.png";
+        menuIcon.d = "resource/menu.png";
+        copyright.style.display='none'
     } else {
         menu.classList.add('menuActive');
-        menuIcon.src = "resource/back.png";
+        copyright.style.display='flex'
     }
 
 });
@@ -131,8 +132,25 @@ function addNewTask(taskText, isCompleted)  {
         <input type="checkbox" class="task-checkbox">
         <span id="taskText" class="task-text">${taskText}</span>
         <div class="button-container">
-            <button class="edit-btn">Edit</button>
-            <button class="delete-btn">Delete</button>
+            <button class="edit-btn">
+                <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path d="M4 20L5 15L15 5L19 9L9 19L4 20ZM16 4L18 2L22 6L20 8L16 4Z" fill="currentColor"/>
+                </svg>
+            </button>
+            <button class="delete-btn">
+                <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path d="M5 7H19L18 21H6L5 7ZM9 3H15L17 7H7L9 3ZM4 7H20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                </button>
         </div>`;
 
         

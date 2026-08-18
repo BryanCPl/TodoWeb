@@ -9,20 +9,32 @@
 </head>
 <body>
     <video class="background" autoplay muted loop playsinline>
-        <source id="video-source" src="resource/background.mp4" type="video/mp4">
+        <source id="video-source" src="resource/fondo.mp4" type="video/mp4">
     </video>
     <div class="menu">
-        <a id="menuToggle"><img id="menu-icon" src="resource/menu.png" alt="Menu"></a>
+        <a id="menuToggle">
+        <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        >
+            <path id="menu-icon" d="M3 6h18M3 12h18M3 18h18"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"/>
+        </svg>
+    </svg></a>
         <div class="menu-item-container">
             <div class="menu-item" id="new-button">New</div>
             <div class="menu-item">
                 <input id="selector-video" type="file" class="hidden" accept="video/*">
-                <label for="selector-video">background</label>
+                <label for="selector-video" class="bg-label">background</label>
             </div>
             <div class="menu-item" id="save-button">save</div>
             <div class="menu-item" id="load-button">load</div>
         </div>
-        <p class="copyright">Pagina hecha por <a href="https://github.com/BryanCPl" target="_blank">Bryan Camilo Peláez Jiménez</a></p>
+        <p class="copyright" style="display:none;">Pagina hecha por <a href="https://github.com/BryanCPl" target="_blank">Bryan Camilo Peláez Jiménez</a></p>
     </div>
     <div class="container">
         <h1>Todo List</h1>
