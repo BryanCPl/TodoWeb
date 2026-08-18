@@ -13,7 +13,7 @@
     </video>
     <div class="menu">
         <a id="menuToggle"><img id="menu-icon" src="resource/menu.png" alt="Menu"></a>
-        <div class="menu-item">
+        <div class="menu-item-container">
             <div class="menu-item" id="new-button">New</div>
             <div class="menu-item">
                 <input id="selector-video" type="file" class="hidden" accept="video/*">
@@ -28,7 +28,6 @@
         <h1>Todo List</h1>
         <div class="stat-Container">
             <div class="details">
-                <h3>keep it out!</h3>
                 <div id="progressbar">
                     <div id="progress"></div>
                 </div>
@@ -46,6 +45,7 @@
             <ul id="todoList"></ul>
             <img class="empty-image" src="resource/nada.png" alt="Todo Image">
         </div>
+        <button id="delete-all-Btn" class="hidden">Delete All</button>
     </div>
 
     <script src="confetti.js"></script>

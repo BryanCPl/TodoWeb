@@ -44,7 +44,7 @@ const confeti=() => {
 
     document.body.appendChild(confetti);
 
-    // Eliminar el confeti cuando termine
+    // Delete all confeti
     setTimeout(() => {
         confetti.remove();
     }, 4000);

@@ -12,19 +12,26 @@ const videoSource = document.getElementById('video-source');
 const newbutton = document.getElementById('new-button');
 const saveButton = document.getElementById('save-button');
 const loadButton = document.getElementById('load-button');
-
+const deleteAllBtn=document.getElementById('delete-all-Btn')
 
 
 
 //save the the task if want repeat it
 saveButton.addEventListener('click', () => {
     const tasks = [];
-    taskList.querySelectorAll('li').forEach((taskItem) => {
-        const taskText = taskItem.querySelector('.task-text').textContent;
-        const isCompleted = taskItem.querySelector('.task-checkbox').checked;
-        tasks.push({ text: taskText, completed: isCompleted });
-    });
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    if (taskList.querySelectorAll('li').length>0){
+            taskList.querySelectorAll('li').forEach((taskItem) => {
+            const taskText = taskItem.querySelector('.task-text').textContent;
+            const isCompleted = taskItem.querySelector('.task-checkbox').checked;
+            tasks.push({ text: taskText, completed: isCompleted });
+        });
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        alert("la tarea se guardo correctamente")
+    }
+    else{
+        alert('No hay tareas')
+    }
+    
 });
 
 //load the taskt in the localstorage
@@ -37,7 +44,8 @@ loadButton.addEventListener('click', () => {
         });
         updateProgressBar();
         emptyImage.style.display = taskList.children.length === 0 ? 'block' : 'none';
-    }
+
+    }else{alert('No se han encontrado tareas guardadas')}
 });
 
             
@@ -94,6 +102,18 @@ const updateProgressBar = (checkCompletion=true) => {
     if (totalTasks > 0 && completedTasks==totalTasks){
         confeti()
     }
+
+    //show or hide emtyimage and delete all task button
+    if (taskList.children.length==0){
+        deleteAllBtn.classList.add("hidden")
+        emptyImage.style.display = 'block'
+    }else{
+        deleteAllBtn.classList.remove("hidden")
+        emptyImage.style.display = 'none'
+    }
+
+
+
 }
 
 button.addEventListener('click', function() {
@@ -114,6 +134,8 @@ function addNewTask(taskText, isCompleted)  {
             <button class="edit-btn">Edit</button>
             <button class="delete-btn">Delete</button>
         </div>`;
+
+        
         
         listItem.querySelector('.task-checkbox').addEventListener('change', function() {
             if (this.checked) {
@@ -135,12 +157,9 @@ function addNewTask(taskText, isCompleted)  {
             if (e.key === "Enter") {
                 e.preventDefault();
                 const newText = taskTextElement.textContent.trim();
-                // Si queda vacío, restaurar texto anterior
-                console.log(newText);
                 if (newText === "") {
                     taskTextElement.textContent = currentText;
                 } else {
-                    // Guardar nuevo texto
                     currentText = newText;
                 }
 
@@ -155,11 +174,13 @@ function addNewTask(taskText, isCompleted)  {
         listItem.querySelector('.delete-btn').addEventListener('click', function() {
             updateProgressBar(false);
             taskList.removeChild(listItem);
-            if (taskList.children.length === 0) {
-                emptyImage.style.display = 'block';
-            }
             updateProgressBar();
         });
+
+        deleteAllBtn.addEventListener('click',()=>{
+            taskList.innerHTML=''
+            updateProgressBar()
+        })
 
         
         taskList.appendChild(listItem);
