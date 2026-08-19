@@ -1,7 +1,8 @@
 # 📝 Todo List
-<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/9d490998-0c1f-4154-88b3-98adc116550a" />
+<img width="1920" height="920" alt="menucaptura" src="https://github.com/user-attachments/assets/14cecfa4-bbec-42b2-b2dc-e71962c30d74" />
 
-Una aplicación **Todo List** sencilla y visual para organizar tareas, con un diseño oscuro, fondo de video personalizable y algunas animaciones para hacer la experiencia más divertida.
+
+Una aplicación **Todo List** sencilla y visual para organizar tareas, con un diseño oscuro, fondo de video personalizable y algunas animaciones como practica de Html CSS y JavaScript.
 
 ## ✨ Características
 
@@ -18,6 +19,7 @@ Una aplicación **Todo List** sencilla y visual para organizar tareas, con un di
 * 📱 Diseño responsive para dispositivos móviles.
 
 ## 🎨 Diseño
+<img width="1920" height="921" alt="ejemplo tareas" src="https://github.com/user-attachments/assets/2a621ffe-4f1a-4c84-b30c-8c5683233c34" />
 
 La interfaz utiliza un panel oscuro sobre un fondo de video, con diferentes colores para distinguir las acciones de las tareas.
 
