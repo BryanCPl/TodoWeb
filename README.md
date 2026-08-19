@@ -13,10 +13,10 @@ Una aplicación **Todo List** sencilla y visual para organizar tareas, con un di
 * 🧹 Eliminar todas las tareas.
 * 📊 Barra de progreso para visualizar el avance.
 * 🔢 Contador de tareas completadas.
-* 🎉 Animación de confeti al completar tareas.
 * 🎥 Fondo de video personalizable.
 * 💾 Guardar y cargar la lista de tareas.
 * 📱 Diseño responsive para dispositivos móviles.
+* 🎁 talvez haya una pequeña sorpresa al completar las tareas
 
 ## 🎨 Diseño
 <img width="1920" height="921" alt="ejemplo tareas" src="https://github.com/user-attachments/assets/2a621ffe-4f1a-4c84-b30c-8c5683233c34" />
